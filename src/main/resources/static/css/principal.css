@@ -1,0 +1,15 @@
+.logo-cab{
+    width: 100px;
+    /*height: 200px;
+    margin-left: 70px;*/
+}
+
+.cabecalho{
+    background-color: rgb(255, 255, 255) !important;
+    box-shadow: 2px 2px 2px rgba(54, 53, 53, 0.5);
+    height: 70px;
+}
+
+.localizacao-cabecalho{
+
+}
