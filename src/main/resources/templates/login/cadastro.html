@@ -82,37 +82,45 @@
                 <div class="col-ms-4 col-xs-4 col-md-4">
                 </div>
                 <div class="col-ms-4 col-xs-4 col-md-4 d-flex justify-content-center carta">
-                    <form>
+                    <form action="/cadastro" method="post" th:object="${usuario}">
                         <div class="form-group">
                             <label for="exampleInputEmail1">Primeiro nome</label>
                             <input type="text" class="form-control" id="InputPrimeiroNome"
-                                aria-describedby="primnomeHelp" placeholder="Seu primeiro nome">
+                                aria-describedby="primnomeHelp" placeholder="Seu primeiro nome" th:field="*{primeiroNome}">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Segundo nome</label>
                             <input type="text" class="form-control" id="InputSegundoNome"
-                                aria-describedby="segnomeHelp" placeholder="Seu segundo nome">
+                                aria-describedby="segnomeHelp" placeholder="Seu segundo nome" th:field="*{segundoNome}">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Matrícula</label>
                             <input type="text" class="form-control" id="InputMatricula"
-                                aria-describedby="matriculaHelp" placeholder="Sua matricula">
+                                aria-describedby="matriculaHelp" placeholder="Sua matricula" th:field="*{matricula}">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Endereço de email</label>
                             <input type="email" class="form-control" id="exampleInputEmail"
-                                aria-describedby="emailHelp" placeholder="Seu email">
+                                aria-describedby="emailHelp" placeholder="Seu email" th:field="*{email}">
                             <small id="emailHelp" class="form-text text-muted">Nunca vamos compartilhar seu email, com
                                 ninguém.</small>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Senha</label>
                             <input type="password" class="form-control" id="InputSenha"
-                                aria-describedby="senhaHelp" placeholder="Sua senha">
+                                aria-describedby="senhaHelp" placeholder="Sua senha" th:field="*{senha}">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Curso</label>
-                            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Seu curso">
+                            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Seu curso" th:field="*{curso}">
+                            <!-- <select th:object="${usuario}">
+                                <option th:each="curso : ${cursos}"
+                                        th:value="${curso.id}"
+                                        th:text="${curso.nome}"
+                                        >
+
+                                </option>
+                            </select> -->
                         </div>
                         <button type="submit" class="btn btn-primary">Enviar</button>
                     </form>

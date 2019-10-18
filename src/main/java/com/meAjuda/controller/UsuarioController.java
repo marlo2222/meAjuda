@@ -18,7 +18,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.meAjuda.pojo.Curso;
+import com.meAjuda.pojo.Disciplina;
 import com.meAjuda.pojo.Usuario;
+import com.meAjuda.services.DisciplinaService;
 import com.meAjuda.services.UsuarioService;
 
 @Controller
@@ -29,6 +32,9 @@ public class UsuarioController {
 	
 	@Autowired
 	UsuarioService usuarioService;
+	
+	@Autowired
+	DisciplinaService disciplinaService;
 	
 	
 	@GetMapping("/login")
@@ -49,6 +55,7 @@ public class UsuarioController {
 	@GetMapping("/cadastro")
 	public ModelAndView registrar() {
 		ModelAndView mv = new ModelAndView();
+//		List<?>	 curso = disciplinaService.listarCursos();
 		mv.addObject("usuario", new Usuario());
 		mv.setViewName("login/cadastro");
 		//mv.setViewName("testes/registrarTeste");
