@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div class="container">
+		<h3>Inserção de novo usuario</h3>
+		<form class="form-horizontal " action="/registrar" method="post" th:object="${usuario}">
+			<div class="row">
+				<div class="form-group col-md-6">
+					
+						<label>primeiro nome</label> 
+							<input type="text" class="form-control" th:field="*{primeiroNome}">
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group col-md-6">		
+						<label>segundo nome</label> 
+							<input type="text" class="form-control" th:field="*{SegundoNome}">
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group col-md-6">
+					
+						<label>matricula</label> 
+							<input type="text" class="form-control" th:field="*{matricula}">
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group col-md-6">
+						<label>email</label> 
+							<input type="email" class="form-control" th:field="*{email}">
+				</div>
+			</div>
+			<div class="row"> 
+				<div class="form-group col-md-6">
+						<label>senha</label> 
+							<input type="password" class="form-control" th:field="*{senha}">
+				</div>
+			</div>
+			<div class="row"> 
+				<div class="form-group col-md-6">
+						<label>curso</label> 
+							<input type="text" class="form-control" th:field="*{curso}">
+				</div>
+			</div>
+			<button type="submit" class="btn btn-primary">Salvar!</button>
+		</form>
+	</div>
+</body>
+</html>

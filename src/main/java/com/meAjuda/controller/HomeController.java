@@ -10,7 +10,8 @@ public class HomeController {
 	@GetMapping("/")
 	public ModelAndView home() {
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("home/home");
+		mv.setViewName("home/index");;
+		//mv.setViewName("testes/loginTeste");
 		return mv;
 	}
 
