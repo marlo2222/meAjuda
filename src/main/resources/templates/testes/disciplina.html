@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div class="container">
+		<h3>Inserção de nova diciplina</h3>
+		<form class="form-horizontal " action="/cadastro/disciplina" method="post" th:object="${disciplina}">
+			<div class="row">
+				<div class="form-group col-md-6">
+					
+						<label>Nome</label> 
+							<input type="text" class="form-control" th:field="*{nome}">
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group col-md-6">		
+						<label>quantidade de semestres</label> 
+							<select th:field="*{qtdSesmestres}">
+    							<option th:each="i : ${#numbers.sequence(1, 10)}" th:value="${i}" th:text="${i}">
+    							</option>
+							</select>
+				</div>
+			</div>
+			<button type="submit" class="btn btn-primary">Salvar!</button>
+		</form>
+	</div>
+</body>
+</html>
