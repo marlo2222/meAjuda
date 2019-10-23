@@ -23,11 +23,11 @@ public class DisciplinaController {
 	@GetMapping("/cadastro/disciplina")
 	public ModelAndView cadastraDisciplina() {
 		ModelAndView mv = new ModelAndView();
-		List<?> cursos = disciplinaService.listarCursos();
+		//List<?> cursos = disciplinaService.listarCursos();
 		mv.addObject("disciplina", new Disciplina());
-		mv.addObject("cursos", cursos);
-		//mv.setViewName("cadastro/cadastroDisciplina");
-		mv.setViewName("testes/curso");
+		//mv.addObject("cursos", cursos);
+		mv.setViewName("cadastro/cadastroDisciplina");
+		//mv.setViewName("testes/curso");
 		return mv;
 	}
 	
@@ -35,8 +35,8 @@ public class DisciplinaController {
 	public ModelAndView cadastraCurso() {
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("curso", new Curso());
-		//mv.setViewName("cadastro/cadastroCurso");
-		mv.setViewName("testes/curso");
+		mv.setViewName("cadastro/cadastroCurso");
+		//mv.setViewName("testes/curso");
 		return mv;
 	}
 	@PostMapping("/cadastro/curso")
