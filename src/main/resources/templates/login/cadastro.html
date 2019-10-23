@@ -62,9 +62,9 @@
                     <div class="menu-container">
                         <ul class="nav navbar-nav navbar-nav-right">
                             <li class="js_nav-item nav-item cor-text"><a class="nav-item-child nav-item-hover"
-                                    href="#about">Entrar</a></li>
+                                    href="#about">Início</a></li>
                             <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover"
-                                    href="#about">Criar perfil grátis</a></li>
+                                    href="#about">Entrar</a></li>
                         </ul>
                     </div>
                 </div>
@@ -106,21 +106,16 @@
                                 ninguém.</small>
                         </div>
                         <div class="form-group">
+                            <label for="inputEstado">Qual seu curso?</label>
+                            <select id="inputEstado" class="form-control">
+                                <option selected>Escolher...</option>
+                                <option>...</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
                             <label for="exampleInputEmail1">Senha</label>
                             <input type="password" class="form-control" id="InputSenha"
                                 aria-describedby="senhaHelp" placeholder="Sua senha" th:field="*{senha}">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Curso</label>
-                            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Seu curso" th:field="*{curso}">
-                            <!-- <select th:object="${usuario}">
-                                <option th:each="curso : ${cursos}"
-                                        th:value="${curso.id}"
-                                        th:text="${curso.nome}"
-                                        >
-
-                                </option>
-                            </select> -->
                         </div>
                         <button type="submit" class="btn btn-primary">Enviar</button>
                     </form>
@@ -172,22 +167,6 @@
     <!--========== END PAGE LAYOUT ==========-->
 
     <!--========== FOOTER ==========-->
-    <footer class="footer">
-        <div class="content container">
-            <div class="row">
-                <div class="col-xs-6">
-                    <img class="footer-logo" src="/img/logo-dark.png" alt="Aircv Logo">
-                </div>
-                <div class="col-xs-6 text-right sm-text-left">
-                    <p class="margin-b-0"><a class="fweight-700" href="http://keenthemes.com/preview/aircv/">Me
-                            Ajuda?</a>
-                        Theme Powered by: <a class="fweight-700" href="http://www.keenthemes.com/">KeenThemes.com</a>
-                    </p>
-                </div>
-            </div>
-            <!--// end row -->
-        </div>
-    </footer>
     <!--========== END FOOTER ==========-->
 
     <!-- Back To Top -->
