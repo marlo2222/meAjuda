@@ -62,8 +62,6 @@
                     <div class="menu-container">
                         <ul class="nav navbar-nav navbar-nav-right">
                             <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover"
-                                    href="/login">Início</a></li>
-                            <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover"
                                     href="/login">Entrar</a></li>
                             <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover"
                                     href="/cadastro">Criar perfil grátis</a></li>
@@ -130,23 +128,21 @@
                             <p>Batman would be jealous.</p>
                         </div>
                     </div> -->
-                    <div class="col-sm-12 col-sm-offset-1">
+                    <div class="col-sm-12 col-sm-offset-1" >
                         <div class="row row-space-2 margin-b-4">
-                            <div class="col-md-2 md-margin-b-4">
-                                <div class="service espaco" data-height="height">
+                            <div class="col-md-2 md-margin-b-4" th:each="curso: ${cursos}">
+                                <div class="service espaco" data-height="height" >
                                     <div class="service-element">
                                         <i class="service-icon icon-badge"></i>
                                     </div>
                                     <div class="service-info">
-                                        <h3>Ciência da computação</h3>
+                                        <h3 th:text="${curso.nome}"></h3>
                                         <p class="margin-b-5">Lorem ipsum dolor amet consectetur ut consequat siad
                                             esqudiat dolor</p>
                                     </div>
-                                    <a href="https://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes"
-                                        class="content-wrapper-link"></a>
                                 </div>
                             </div>
-                            <div class="col-md-2 md-margin-b-4">
+                            <!-- <div class="col-md-2 md-margin-b-4">
                                 <div class="service" data-height="height">
                                     <div class="service-element">
                                         <i class="service-icon icon-badge"></i>
@@ -201,7 +197,7 @@
                                     <a href="https://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes"
                                         class="content-wrapper-link"></a>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                         <!--// end row -->
                     </div>

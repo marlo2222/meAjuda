@@ -55,25 +55,23 @@ public class UsuarioController {
 	@GetMapping("/cadastro")
 	public ModelAndView registrar() {
 		ModelAndView mv = new ModelAndView();
-//		List<?>	 curso = disciplinaService.listarCursos();
+		Curso[] cursos = disciplinaService.listarCursos(); 
+		mv.addObject("cursos",cursos);
 		mv.addObject("usuario", new Usuario());
 		mv.setViewName("login/cadastro");
-		//mv.setViewName("testes/registrarTeste");
 		return mv;
 	}
 	@PostMapping("/cadastro")
-	public ModelAndView registrar(Usuario usuario, BindingResult result){
+	public ModelAndView registrar(@Valid Usuario usuario, BindingResult result){
 		
 		ModelAndView mv = new ModelAndView();
 		result = usuarioService.registrarUsuario(usuario, result);
-		
 		if (result.hasErrors()) {
-			mv.setViewName("testes/registrarTeste");
+			mv.setViewName("login/cadastro");
 			mv.addObject("usuario", usuario);
 		}else {
 			mv.setViewName("redirect:/login");
 		}
-		
 		return mv;
 	}
 	

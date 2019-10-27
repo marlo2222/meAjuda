@@ -62,9 +62,9 @@
                     <div class="menu-container">
                         <ul class="nav navbar-nav navbar-nav-right">
                             <li class="js_nav-item nav-item cor-text"><a class="nav-item-child nav-item-hover"
-                                    href="#about">Início</a></li>
+                                    href="/">Início</a></li>
                             <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover"
-                                    href="#about">Entrar</a></li>
+                                    href="/login">Entrar</a></li>
                         </ul>
                     </div>
                 </div>
@@ -107,9 +107,9 @@
                         </div>
                         <div class="form-group">
                             <label for="inputEstado">Qual seu curso?</label>
-                            <select id="inputEstado" class="form-control">
-                                <option selected>Escolher...</option>
-                                <option>...</option>
+                            <select id="inputEstado" class="form-control" name="curso">
+                               
+                                <option th:each="curso : ${cursos}" th:value="${curso.id}" th:text="${curso.nome}"></option>
                             </select>
                         </div>
                         <div class="form-group">

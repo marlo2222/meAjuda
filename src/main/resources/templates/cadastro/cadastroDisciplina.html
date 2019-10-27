@@ -82,22 +82,22 @@
                 <div class="col-ms-4 col-xs-4 col-md-4">
                 </div>
                 <div class="col-ms-4 col-xs-4 col-md-4 d-flex justify-content-center carta">
-                    <form>
+                    <form action="/cadastro/disciplina" method="post" th:object="${disciplina}">
                         <div class="form-group">
                             <label for="exampleInputEmail1">Nome da disciplina</label>
                             <input type="text" class="form-control" id="InputNomeDisciplina"
-                                aria-describedby="nomeDisciplinaHelp" placeholder="Nome da disciplina">
+                                aria-describedby="nomeDisciplinaHelp" placeholder="Nome da disciplina" th:field="*{nome}" name="nome">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Nome do professor atual</label>
                             <input type="text" class="form-control" id="InputSegundoNome" aria-describedby="segnomeHelp"
-                                placeholder="Seu segundo nome">
-                        </div>
+                                placeholder="Seu segundo nome" th:field="*{professorAtual}" name="professorAtual">
+                        </div>                                                                
                         <div class="form-group">
                             <label for="inputEstado">Selecione a qual curso essa disciplina pertence</label>
-                            <select id="inputEstado" class="form-control">
-                                <option selected>Escolher...</option>
-                                <option>...</option>
+                            <select id="inputEstado" class="form-control" name="idCurso">
+                                <option th:each="curso : ${cursos}" th:value="${curso.id}" th:text="${curso.nome}">
+    							</option>
                             </select>
                         </div>
                         <button type="submit" class="btn btn-primary">Enviar</button>

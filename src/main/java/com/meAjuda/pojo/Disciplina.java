@@ -9,6 +9,8 @@ public class Disciplina {
     private String professorAtual;
 
     private Curso curso;
+    
+    private int idCurso;
 
 	public long getId() {
 		return id;
@@ -40,6 +42,13 @@ public class Disciplina {
 
 	public void setCurso(Curso curso) {
 		this.curso = curso;
+	}
+	public int getIdCurso() {
+		return idCurso;
+	}
+
+	public void setIdCurso(int idCurso) {
+		this.idCurso = idCurso;
 	}
     
     

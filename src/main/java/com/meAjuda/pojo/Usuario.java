@@ -1,29 +1,34 @@
 package com.meAjuda.pojo;
 
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.Length;
 
 public class Usuario {
 	
     private long id;
-    
-//    @NotNull(message = "O primeiro nome 'e obrigatorio")
-//    @NotEmpty(message = "O primeiro nome 'e obrigatorio")
+   
+    @NotNull(message = "O primeiro nome é obrigatorio")
     private String primeiroNome;
     
+    @NotNull(message = "O primeiro nome é obrigatorio")
     private String SegundoNome;
-//    @NotNull(message = "A matricula e obrigatoria")
-//    @NotEmpty(message = "A matricula e obrigatoria")
+
+    @NotNull(message = "A matricula e obrigatoria")
+    @Length(min = 5, max = 6, message = "A matricula deve conter 6 numeros")	
     private String matricula;
     
-//    @NotNull(message = "O email e obrigatorio")
-//    @NotEmpty(message = "O email e obrigatorio")
+    @NotNull(message = "O email e obrigatorio")
+    @Email(message = "email precisa ser valido")
     private String email;
-//    
-//    @NotNull(message = "A senha 'e obrigatoria")
-//    @NotEmpty(message = "A senha 'e obrigatoria")
+    
+    @NotNull(message = "A senha é obrigatoria")
+    @Length(min = 5, max = 100, message = "A senha deve conter entre 5 e 100 caracteres")
     private String senha;
-
+    
+    @NotNull(message = "A curso é obrigatoria")
     private  long curso;
 
 	public long getId() {
