@@ -18,6 +18,7 @@ public class FavoritoService {
 	RestTemplate rest;
 	
 	final String urlFavorito = "https://passei-favorito.herokuapp.com/api/favorito";
+	final String urlPontuacao = "https://passei-favorito.herokuapp.com/api/pontuacao/";
 	
 	public ResponseEntity<?> adiconarFavorito(long id, long usuario) {
 		
@@ -32,6 +33,26 @@ public class FavoritoService {
 		ResponseEntity<String> response = rest.postForEntity(urlFavorito, requestEntity, String.class);
 
 		return response;
+	}
+	
+	public Long favoritosDocumentosUsuario(long id){
+		
+		ResponseEntity<Long> response = rest.getForEntity(urlPontuacao+id, Long.class);
+		Long quantidade = response.getBody();
+		if (quantidade == null)
+			quantidade = (long) 0;
+		return quantidade;
+		
+	}
+	
+	public Long pontuacaoUsuario(long id){
+		
+		ResponseEntity<Long> response = rest.getForEntity(urlFavorito+"/listar/"+id, Long.class);
+		Long quantidade = response.getBody();
+		if (quantidade == null)
+			quantidade = (long) 0;
+		return quantidade;
+		
 	}
 	
 }

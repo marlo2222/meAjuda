@@ -14,7 +14,7 @@
 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
 <!DOCTYPE html>
-<html>
+<html xmlns:th="www.thymeleaf.org">
 
 <head>
   <meta charset="utf-8" />
@@ -23,14 +23,14 @@
     Me ajuda?
   </title>
   <!-- Favicon -->
-  <link href="../../static/assets/img/brand/favicon.png" rel="icon" type="image/png">
+  <link href="assets/img/brand/favicon.png" rel="icon" type="image/png">
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
   <!-- Icons -->
-  <link href="../../static/assets/js/plugins/nucleo/css/nucleo.css" rel="stylesheet" />
-  <link href="../../static/assets/js/plugins/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet" />
+  <link href="assets/js/plugins/nucleo/css/nucleo.css" rel="stylesheet" />
+  <link href="assets/js/plugins/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet" />
   <!-- CSS Files -->
-  <link href="../../static/assets/css/argon-dashboard.css?v=1.1.0" rel="stylesheet" />
+  <link href="assets/css/argon-dashboard.css?v=1.1.0" rel="stylesheet" />
 </head>
 
 <body class="">
@@ -43,7 +43,7 @@
       </button>
       <!-- Brand -->
       <a class="navbar-brand pt-0" href="./index.html">
-        <img src="../../static/assets/img/brand/logo.svg" class="navbar-brand-img" alt="...">
+        <img src="assets/img/brand/logo.svg" class="navbar-brand-img" alt="...">
       </a>
       <!-- User -->
       <ul class="nav align-items-center d-md-none">
@@ -64,7 +64,7 @@
           <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <div class="media align-items-center">
               <span class="avatar avatar-sm rounded-circle">
-                <img alt="Image placeholder" src="../../static/assets/img/theme/team-1-800x800.jpg
+                <img alt="Image placeholder" src="assets/img/theme/team-1-800x800.jpg
 ">
               </span>
             </div>
@@ -104,7 +104,7 @@
           <div class="row">
             <div class="col-6 collapse-brand">
               <a href="./index.html">
-                <img src="../../static/assets/img/brand/blue.png">
+                <img src="assets/img/brand/blue.png">
               </a>
             </div>
             <div class="col-6 collapse-close">
@@ -189,7 +189,7 @@
               aria-expanded="false">
               <div class="media align-items-center">
                 <span class="avatar avatar-sm rounded-circle">
-                  <img alt="Image placeholder" src="../../static/assets/img/theme/team-4-800x800.jpg">
+                  <img alt="Image placeholder" src="assets/img/theme/team-4-800x800.jpg">
                 </span>
                 <div class="media-body ml-2 d-none d-lg-block">
                   <span class="mb-0 text-sm  font-weight-bold">Nome do usuário</span>
@@ -235,8 +235,8 @@
                 <div class="card-body">
                   <div class="row">
                     <div class="col">
-                      <h5 class="card-title text-uppercase text-muted mb-0">Documentos que você compartilhou</h5>
-                      <span class="h2 font-weight-bold mb-0">350</span>
+                      <h5 class="card-title text-uppercase text-muted mb-0">Documentos compartilhados</h5>
+                      <span class="h2 font-weight-bold mb-0" th:text="${documentosCompartilhados}"></span>
                     </div>
                     <div class="col-auto">
                       <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
@@ -252,8 +252,8 @@
                 <div class="card-body">
                   <div class="row">
                     <div class="col">
-                      <h5 class="card-title text-uppercase text-muted mb-0">Estrelas nos seus documentos</h5>
-                      <span class="h2 font-weight-bold mb-0">2</span>
+                      <h5 class="card-title text-uppercase text-muted mb-0">Favorito nos seus documentos</h5>
+                      <span class="h2 font-weight-bold mb-0" th:text="${quatidadeFavoritosRecebidos}"></span>
                     </div>
                     <div class="col-auto">
                       <div class="icon icon-shape bg-warning text-white rounded-circle shadow">
@@ -270,7 +270,7 @@
                   <div class="row">
                     <div class="col">
                       <h5 class="card-title text-uppercase text-muted mb-0">Documentos que você baixou</h5>
-                      <span class="h2 font-weight-bold mb-0">924</span>
+                      <span class="h2 font-weight-bold mb-0"></span>
                     </div>
                     <div class="col-auto">
                       <div class="icon icon-shape bg-yellow text-white rounded-circle shadow">
@@ -286,8 +286,8 @@
                 <div class="card-body">
                   <div class="row">
                     <div class="col">
-                      <h5 class="card-title text-uppercase text-muted mb-0">Disciplinas do seu perfil</h5>
-                      <span class="h2 font-weight-bold mb-0">5</span>
+                      <h5 class="card-title text-uppercase text-muted mb-0">Sua pontuação</h5>
+                      <span class="h2 font-weight-bold mb-0" th:text="${pontuacao}"></span>
                     </div>
                     <div class="col-auto">
                       <div class="icon icon-shape bg-info text-white rounded-circle shadow">
@@ -378,13 +378,13 @@
   </div>
   <!--   Core   -->
   
-  <script src="../../static/assets/js/plugins/jquery/dist/jquery.min.js"></script>
-  <script src="../../static/assets/js/plugins/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/plugins/jquery/dist/jquery.min.js"></script>
+  <script src="assets/js/plugins/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
   <!--   Optional JS   -->
-  <script src="../../static/assets/js/plugins/chart.js/dist/Chart.min.js"></script>
-  <script src="../../static/assets/js/plugins/chart.js/dist/Chart.extension.js"></script>
+  <script src="assets/js/plugins/chart.js/dist/Chart.min.js"></script>
+  <script src="assets/js/plugins/chart.js/dist/Chart.extension.js"></script>
   <!--   Argon JS   -->
-  <script src="../../static/assets/js/argon-dashboard.min.js?v=1.1.0"></script>
+  <script src="assets/js/argon-dashboard.min.js?v=1.1.0"></script>
   <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
   <script>
     window.TrackJS &&

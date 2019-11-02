@@ -52,6 +52,15 @@ public class FileService {
 		ResponseEntity<String> response = rest.postForEntity(urlFile+"/documento/adicionar/", requestEntity, String.class);
 
 	}
+	
+	public Long quantidadeArquivosUsuario(long id){
+		ResponseEntity<Long> response = rest.getForEntity(urlFile+"/count/"+id, Long.class);
+		Long quantidade = response.getBody();
+		if (quantidade == null)
+			quantidade = (long) 0;
+		return quantidade;
+	}
+	
 	public Documento[] listarDocumentos() {
 		ResponseEntity<Documento[]> response = rest.getForEntity(urlFile+"/listar", Documento[].class);
 		Documento[] documentos = response.getBody();
@@ -74,5 +83,6 @@ public class FileService {
 	public static String getExtensionByApacheCommonLib(String filename) {
 		return FilenameUtils.getExtension(filename);
 	}
+	
 
 }
