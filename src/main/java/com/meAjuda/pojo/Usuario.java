@@ -13,11 +13,10 @@ public class Usuario {
     @NotNull(message = "O primeiro nome é obrigatorio")
     private String primeiroNome;
     
-    @NotNull(message = "O primeiro nome é obrigatorio")
     private String SegundoNome;
 
     @NotNull(message = "A matricula e obrigatoria")
-    @Length(min = 5, max = 6, message = "A matricula deve conter 6 numeros")	
+    @Length(min = 5, max = 6, message = "A matricula deve conter 6 digitos")	
     private String matricula;
     
     @NotNull(message = "O email e obrigatorio")

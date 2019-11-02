@@ -68,6 +68,8 @@ public class UsuarioController {
 		result = usuarioService.registrarUsuario(usuario, result);
 		if (result.hasErrors()) {
 			mv.setViewName("login/cadastro");
+			Curso[] cursos = disciplinaService.listarCursos(); 
+			mv.addObject("cursos",cursos);
 			mv.addObject("usuario", usuario);
 		}else {
 			mv.setViewName("redirect:/login");
