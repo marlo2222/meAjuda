@@ -2,6 +2,7 @@ package com.meAjuda.services;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -17,12 +18,19 @@ public class DisciplinaService {
 	private final String urlCurso = "https://passei-disciplina.herokuapp.com/api/curso/";
 	private final String urlDisciplina = "https://passei-disciplina.herokuapp.com/api/disciplina/";
 	
-	RestTemplate rest = new RestTemplate();
+	@Autowired
+	RestTemplate rest;
 	
 	public Curso[] listarCursos(){
 		ResponseEntity<Curso[]> entity = rest.getForEntity(urlCurso+"listar", Curso[].class);
 		Curso[] cursos = entity.getBody();
 		return cursos;
+	}
+	
+	public Curso cursoId(long id) {
+		ResponseEntity<Curso> entity = rest.getForEntity(urlCurso+"listar/"+id, Curso.class);
+		Curso curso = entity.getBody();
+		return curso;
 	}
 	
 	public BindingResult salvarCurso(Curso curso, BindingResult bindingResult){
@@ -37,11 +45,7 @@ public class DisciplinaService {
 		
 	}
 	
-	public Curso cursoId(int id) {
-		ResponseEntity<Curso> entity = rest.getForEntity(urlCurso+"listar/"+id, Curso.class);
-		Curso curso = entity.getBody();
-		return curso;
-	}
+	
 	
 	public BindingResult salvarDisciplina(Disciplina disciplina, BindingResult result){
 		
@@ -59,6 +63,7 @@ public class DisciplinaService {
 		Disciplina[] disciplinas = response.getBody();
 		return disciplinas;
 	}
+	
 	public void deletarDisciplina(long id){
 		rest.delete(urlDisciplina+"deletar/"+id);
 	}

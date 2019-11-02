@@ -2,22 +2,23 @@
 <html xmlns:th="www.thymeleaf.org">
 <head>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 <meta charset="UTF-8">
 <title>Listar Documento</title>
 </head>
 <body>
 <h1>Listagem documentos</h1>
 <div class="container">
+    
 
 <div class="card" style="width: 18rem;" th:each="documento : ${documentos}">
   <div class="card-body">
     <h5 class="card-title" th:text=${documento.titulo}></h5>
-    <h6 class="card-subtitle mb-2 text-muted" th:text="${documento.tipo}">
-  
-    </h6>
+    <!-- <h3 class="card-subtitle mb-2 text-muted"></h3> -->
     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="card-link">Download</a>
-    <a href="#" class="card-link">Another link</a>
+    <a class="card-link"><i class="fa fa-file" aria-hidden="true"></i></i></a>
+    <a th:href="@{${documento.fileDownloadUri}}" target="_blank" class="card-link"><i class="fa fa-download" aria-hidden="true"></i></a>
+    <a th:href="@{/favorito/adicionar/}" class="card-link"><i class="fa fa-heart" aria-hidden="true"></i></a>
   </div>
 </div>
 

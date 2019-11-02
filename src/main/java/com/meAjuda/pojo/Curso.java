@@ -1,6 +1,6 @@
 package com.meAjuda.pojo;
 
-import java.util.List;
+
 
 
 public class Curso {
@@ -11,7 +11,7 @@ public class Curso {
 
     private int qtdSesmestres;
 
-    public List<Disciplina> disciplinas;
+    private Disciplina[] disciplinas;
 
 	public long getId() {
 		return id;
@@ -37,15 +37,14 @@ public class Curso {
 		this.qtdSesmestres = qtdSesmestres;
 	}
 
-	public List<Disciplina> getDisciplinas() {
+	public Disciplina[] getDisciplinas() {
 		return disciplinas;
 	}
 
-	public void setDisciplinas(List<Disciplina> disciplinas) {
+	public void setDisciplinas(Disciplina[] disciplinas) {
 		this.disciplinas = disciplinas;
 	}
-    
-    
+
 
 
 }

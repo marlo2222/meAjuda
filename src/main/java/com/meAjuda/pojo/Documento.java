@@ -22,25 +22,8 @@ public class Documento {
 	
 	private String titulo;
 	
-	public String getTitulo() {
-		return titulo;
-	}
+	private long idDisciplina;
 
-	public void setTitulo(String titulo) {
-		this.titulo = titulo;
-	}
-
-	public long getIdUsuario() {
-		return idUsuario;
-	}
-
-	public void setIdUsuario(long idUsuario) {
-		this.idUsuario = idUsuario;
-	}
-
-	public void setTipo(long tipo) {
-		this.tipo = tipo;
-	}
 
 	private long idUsuario;
 
@@ -99,8 +82,32 @@ public class Documento {
 	public void setData(Date data) {
 		this.data = data;
 	}
+	public String getTitulo() {
+		return titulo;
+	}
 
-	
-	
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
+
+	public long getIdUsuario() {
+		return idUsuario;
+	}
+
+	public void setIdUsuario(long idUsuario) {
+		this.idUsuario = idUsuario;
+	}
+
+	public void setTipo(long tipo) {
+		this.tipo = tipo;
+	}
+
+	public long getIdDisciplina() {
+		return idDisciplina;
+	}
+
+	public void setIdDisciplina(long idDisciplina) {
+		this.idDisciplina = idDisciplina;
+	}
 
 }
