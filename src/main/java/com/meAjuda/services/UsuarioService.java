@@ -15,8 +15,8 @@ import com.meAjuda.pojo.Usuario;
 @Service
 public class UsuarioService {
 	
-
-	RestTemplate rest = new RestTemplate();
+	@Autowired
+	RestTemplate rest;
 
 	private final String url = "https://passei-usuario.herokuapp.com/api/usuario";
 	

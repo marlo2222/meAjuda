@@ -23,6 +23,13 @@
   		<option value="6">Apresentação</option>	
 	</select>	
   	</div>
+  	<div class="form-group">
+  		<select class="custom-select" name="disciplina">
+  			<option selected>Arquivo para qual disciplina</option>
+    		<option th:each="disciplina : ${disciplinas}" th:value="${disciplina.id}" th:text="${disciplina.nome}">
+    		</option>
+		</select>
+  	</div>
    <div class="form-group">
   	<input type="file" id="customFile" name="arquivo">
   	</div>

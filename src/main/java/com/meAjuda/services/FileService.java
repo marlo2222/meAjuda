@@ -10,6 +10,7 @@ import java.util.Map;
 import java.util.Optional;
 
 import org.apache.commons.io.FilenameUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
@@ -32,13 +33,15 @@ public class FileService {
 	
 	private final String urlFile = "https://passei-file.herokuapp.com/api";
 
-	RestTemplate rest = new RestTemplate();
+	@Autowired
+	RestTemplate rest;
 
-	public void enviarArquivo(long usuario, String titulo, long tipo, MultipartFile file) throws URISyntaxException, IOException {
+	public void enviarArquivo(long usuario, String titulo, long tipo, long disciplina, MultipartFile file) throws IOException {
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(MediaType.MULTIPART_FORM_DATA);
 
 		MultiValueMap<String, Object> body = new LinkedMultiValueMap<>();
+		body.add("disciplina", disciplina);
 		body.add("usuario", usuario);
 		body.add("titulo", titulo);
 		body.add("tipo", tipo);
