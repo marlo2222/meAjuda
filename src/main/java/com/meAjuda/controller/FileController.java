@@ -18,6 +18,7 @@ import com.meAjuda.pojo.Curso;
 import com.meAjuda.pojo.Disciplina;
 import com.meAjuda.pojo.Documento;
 import com.meAjuda.services.DisciplinaService;
+import com.meAjuda.services.FavoritoService;
 import com.meAjuda.services.FileService;
 
 import org.springframework.web.multipart.MultipartFile;
@@ -30,6 +31,8 @@ public class FileController {
 	FileService fileService;
 	@Autowired
 	DisciplinaService disciplinaService;
+	@Autowired
+	FavoritoService favoritoService;
 	
 	@GetMapping("/arquivo")
 	public ModelAndView uploadFile(){
@@ -47,6 +50,7 @@ public class FileController {
 		ModelAndView mv = new ModelAndView();
 		long usuario = 1;
 		fileService.enviarArquivo(usuario, titulo, tipo, disciplina, file);
+		favoritoService.adiconarPontos(usuario, 20);
 		mv.setViewName("testes/listFiles");
 		return mv;
 	}

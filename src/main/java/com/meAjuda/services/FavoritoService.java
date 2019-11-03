@@ -11,24 +11,27 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.client.RestTemplate;
 
+import ch.qos.logback.classic.net.SocketNode;
+
 @Service
 public class FavoritoService {
 	
 	@Autowired
 	RestTemplate rest;
 	
-	final String urlFavorito = "https://passei-favorito.herokuapp.com/api/favorito";
-	final String urlPontuacao = "https://passei-favorito.herokuapp.com/api/pontuacao/";
+	final String urlFavorito = "https://passei-favorito.herokuapp.com/api/favorito/";
+	final String urlPontuacao = "https://passei-favorito.herokuapp.com/api/pontuacao";
 	
-	public ResponseEntity<?> adiconarFavorito(long id, long usuario) {
+	public ResponseEntity<?> adiconarFavorito(long id, long usuario, long donoDocumento) {
 		
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(MediaType.MULTIPART_FORM_DATA);
-
+		
 		MultiValueMap<String, Object> body = new LinkedMultiValueMap<>();
 		body.add("file", id);
 		body.add("usuario", usuario);
-		
+		body.add("donoArquivo", donoDocumento);
+		System.out.println("entrou aqui");
 		HttpEntity<MultiValueMap<String, Object>> requestEntity = new HttpEntity<>(body, headers);
 		ResponseEntity<String> response = rest.postForEntity(urlFavorito, requestEntity, String.class);
 
@@ -37,7 +40,7 @@ public class FavoritoService {
 	
 	public Long favoritosDocumentosUsuario(long id){
 		
-		ResponseEntity<Long> response = rest.getForEntity(urlPontuacao+id, Long.class);
+		ResponseEntity<Long> response = rest.getForEntity(urlPontuacao+"/"+id, Long.class);
 		Long quantidade = response.getBody();
 		if (quantidade == null)
 			quantidade = (long) 0;
@@ -53,6 +56,23 @@ public class FavoritoService {
 			quantidade = (long) 0;
 		return quantidade;
 		
+	}
+	
+	public ResponseEntity<?> adiconarPontos(long usuario, long pontos){
+
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(MediaType.MULTIPART_FORM_DATA);
+
+		MultiValueMap<String, Object> body = new LinkedMultiValueMap<>();
+		body.add("usuario", usuario);
+		body.add("pontos", pontos);
+		
+		HttpEntity<MultiValueMap<String, Object>> requestEntity = new HttpEntity<>(body, headers);
+		
+		ResponseEntity<String> response = rest.postForEntity(urlPontuacao, requestEntity, String.class);
+
+		return response;
+
 	}
 	
 }

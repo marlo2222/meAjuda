@@ -18,7 +18,7 @@
     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
     <a class="card-link"><i class="fa fa-file" aria-hidden="true"></i></i></a>
     <a th:href="@{${documento.fileDownloadUri}}" target="_blank" class="card-link"><i class="fa fa-download" aria-hidden="true"></i></a>
-    <a th:href="@{/favorito/adicionar/}" class="card-link"><i class="fa fa-heart" aria-hidden="true"></i></a>
+    <a th:href="@{/favorito/adicionar/(id=${documento.id},donoDocumento=${documento.idUsuario})}" class="card-link"><i class="fa fa-heart" aria-hidden="true"></i></a>
   </div>
 </div>
 
