@@ -23,7 +23,7 @@
     Me ajuda?
   </title>
   <!-- Favicon -->
-  <link href="assets/img/brand/logopequeno.png" rel="icon" type="image/png">
+  <link href="assets/img/brand/favicon.png" rel="icon" type="image/png">
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
   <!-- Icons -->
@@ -31,7 +31,6 @@
   <link href="assets/js/plugins/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet" />
   <!-- CSS Files -->
   <link href="assets/css/argon-dashboard.css?v=1.1.0" rel="stylesheet" />
-  <link href="assets/css/melhorias.css" rel="stylesheet" />
 </head>
 
 <body class="">
@@ -76,24 +75,24 @@
             </div>
             <a href="./examples/profile.html" class="dropdown-item">
               <i class="ni ni-single-02"></i>
-              <span>Perfil</span>
+              <span>My profile</span>
             </a>
             <a href="./examples/profile.html" class="dropdown-item">
               <i class="ni ni-settings-gear-65"></i>
-              <span>Configurações</span>
+              <span>Settings</span>
             </a>
             <a href="./examples/profile.html" class="dropdown-item">
-              <i class="ni ni-collection"></i>
-              <span>Meus documentos</span>
+              <i class="ni ni-calendar-grid-58"></i>
+              <span>Activity</span>
             </a>
             <a href="./examples/profile.html" class="dropdown-item">
-              <i class="ni ni-single-copy-04"></i>
-              <span>Enviar documento</span>
+              <i class="ni ni-support-16"></i>
+              <span>Support</span>
             </a>
             <div class="dropdown-divider"></div>
             <a href="#!" class="dropdown-item">
               <i class="ni ni-user-run"></i>
-              <span>Sair</span>
+              <span>Logout</span>
             </a>
           </div>
         </li>
@@ -136,23 +135,28 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="../dashboard/examples/favoritos.html">
-              <i class="ni ni-favourite-28 text-blue"></i> Favoritos
+            <a class="nav-link " href="./examples/icons.html">
+              <i class="ni ni-planet text-blue"></i> Icons
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="../dashboard/examples/meusdocumentos.html">
-              <i class="ni ni-collection text-orange"></i> Meus documentos
+            <a class="nav-link " href="./examples/maps.html">
+              <i class="ni ni-pin-3 text-orange"></i> Maps
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="../dashboard/examples/perfil.html">
+            <a class="nav-link " href="./examples/profile.html">
               <i class="ni ni-single-02 text-yellow"></i> Perfil
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="../dashboards/examples/enviardocumentos.html">
-              <i class="ni ni-single-copy-04 text-red"></i> Enviar arquivo
+            <a class="nav-link " href="./examples/tables.html">
+              <i class="ni ni-bullet-list-67 text-red"></i> Tables
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./examples/register.html">
+              <i class="ni ni-circle-08 text-pink"></i> Register
             </a>
           </li>
         </ul>
@@ -193,27 +197,27 @@
               </div>
             </a>
             <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right">
-                <a href="./examples/profile.html" class="dropdown-item">
-                  <i class="ni ni-single-02"></i>
-                  <span>Perfil</span>
-                </a>
-                <a href="./examples/profile.html" class="dropdown-item">
-                  <i class="ni ni-settings-gear-65"></i>
-                  <span>Configurações</span>
-                </a>
-                <a href="./examples/profile.html" class="dropdown-item">
-                  <i class="ni ni-collection"></i>
-                  <span>Meus documentos</span>
-                </a>
-                <a href="./examples/profile.html" class="dropdown-item">
-                  <i class="ni ni-single-copy-04"></i>
-                  <span>Enviar documento</span>
-                </a>
-                <div class="dropdown-divider"></div>
-                <a href="#!" class="dropdown-item">
-                  <i class="ni ni-user-run"></i>
-                  <span>Sair</span>
-                </a>
+              <a href="./examples/profile.html" class="dropdown-item">
+                <i class="ni ni-single-02"></i>
+                <span>My profile</span>
+              </a>
+              <a href="./examples/profile.html" class="dropdown-item">
+                <i class="ni ni-settings-gear-65"></i>
+                <span>Settings</span>
+              </a>
+              <a href="./examples/profile.html" class="dropdown-item">
+                <i class="ni ni-calendar-grid-58"></i>
+                <span>Activity</span>
+              </a>
+              <a href="./examples/profile.html" class="dropdown-item">
+                <i class="ni ni-support-16"></i>
+                <span>Support</span>
+              </a>
+              <div class="dropdown-divider"></div>
+              <a href="#!" class="dropdown-item">
+                <i class="ni ni-user-run"></i>
+                <span>Logout</span>
+              </a>
             </div>
           </li>
         </ul>
@@ -226,24 +230,23 @@
         <div class="header-body">
           <!-- Card stats -->
           <div class="row">
-
-              <div class="col-xl-3 col-lg-6">
-                  <div class="card card-stats mb-4 mb-xl-0">
-                    <div class="card-body">
-                      <div class="row">
-                        <div class="col">
-                          <h5 class="card-title text-uppercase text-muted mb-0">Documentos compartilhados</h5>
-                          <span class="h2 font-weight-bold mb-0" th:text="${quatidadeFavoritosRecebidos}"></span>
-                        </div>
-                        <div class="col-auto">
-                          <div class="icon icon-shape bg-warning text-white rounded-circle shadow">
-                            <i class="ni ni-ruler-pencil"></i>
-                          </div>
-                        </div>
+            <div class="col-xl-3 col-lg-6">
+              <div class="card card-stats mb-4 mb-xl-0">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col">
+                      <h5 class="card-title text-uppercase text-muted mb-0">Documentos compartilhados</h5>
+                      <span class="h2 font-weight-bold mb-0" th:text="${documentosCompartilhados}"></span>
+                    </div>
+                    <div class="col-auto">
+                      <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
+                        <i class="ni ni-ruler-pencil"></i>
                       </div>
                     </div>
                   </div>
                 </div>
+              </div>
+            </div>
             <div class="col-xl-3 col-lg-6">
               <div class="card card-stats mb-4 mb-xl-0">
                 <div class="card-body">
@@ -310,89 +313,59 @@
             <div class="card-body">
               <div class="row icon-examples">
                 <div class="col-lg-4 col-md-6">
-                  <button type="button" class="btn-icon-clipboard" data-clipboard-text="active-40"
+                  <button type="button" class="" data-clipboard-text="active-40"
                     title="Copy to clipboard">
-                    <div class="justify-content-center">
-                      <span>Nome do arquivo</span>
-                    </div>
-                    <div class="espaco"></div>
-                    <div class="justify-content-center">
-                      <i class="ni ni-bold-down"></i>
-                      <i class="ni ni-active-40 esp"></i>
-                      <i class="ni ni-favourite-28 esp"></i>
+                    <div>
+                      <i class="ni ni-active-40"></i>
+                      <span>active-40</span>
                     </div>
                   </button>
                 </div>
                 <div class="col-lg-4 col-md-6">
                   <button type="button" class="btn-icon-clipboard" data-clipboard-text="active-40"
                     title="Copy to clipboard">
-                    <div class="justify-content-center">
-                      <span>Nome do arquivo</span>
-                    </div>
-                    <div class="espaco"></div>
-                    <div class="justify-content-center">
-                      <i class="ni ni-bold-down"></i>
-                      <i class="ni ni-active-40 esp"></i>
-                      <i class="ni ni-favourite-28 esp"></i>
+                    <div>
+                      <i class="ni ni-active-40"></i>
+                      <span>active-40</span>
                     </div>
                   </button>
                 </div>
                 <div class="col-lg-4 col-md-6">
                   <button type="button" class="btn-icon-clipboard" data-clipboard-text="active-40"
                     title="Copy to clipboard">
-                    <div class="justify-content-center">
-                      <span>Nome do arquivo</span>
-                    </div>
-                    <div class="espaco"></div>
-                    <div class="justify-content-center">
-                      <i class="ni ni-bold-down"></i>
-                      <i class="ni ni-active-40 esp"></i>
-                      <i class="ni ni-favourite-28 esp"></i>
+                    <div>
+                      <i class="ni ni-active-40"></i>
+                      <span>active-40</span>
                     </div>
                   </button>
                 </div>
                 <div class="col-lg-4 col-md-6">
                   <button type="button" class="btn-icon-clipboard" data-clipboard-text="active-40"
                     title="Copy to clipboard">
-                    <div class="justify-content-center">
-                      <span>Nome do arquivo</span>
-                    </div>
-                    <div class="espaco"></div>
-                    <div class="justify-content-center">
-                      <i class="ni ni-bold-down"></i>
-                      <i class="ni ni-active-40 esp"></i>
-                      <i class="ni ni-favourite-28 esp"></i>
+                    <div>
+                      <i class="ni ni-active-40"></i>
+                      <span>active-40</span>
                     </div>
                   </button>
                 </div>
                 <div class="col-lg-4 col-md-6">
-                  <button type="button" class="btn-icon-clipboard" data-clipboard-text="active-40"
-                    title="Copy to clipboard">
-                    <div class="justify-content-center">
-                      <span>Nome do arquivo</span>
+                    <button type="button" class="btn-icon-clipboard" data-clipboard-text="active-40"
+                      title="Copy to clipboard">
+                      <div>
+                        <i class="ni ni-active-40"></i>
+                        <span>active-40</span>
+                      </div>
+                    </button>
+                  </div>
+                  <div class="col-lg-4 col-md-6">
+                      <button type="button" class="btn-icon-clipboard" data-clipboard-text="active-40"
+                        title="Copy to clipboard">
+                        <div>
+                          <i class="ni ni-active-40"></i>
+                          <span>active-40</span>
+                        </div>
+                      </button>
                     </div>
-                    <div class="espaco"></div>
-                    <div class="justify-content-center">
-                      <i class="ni ni-bold-down"></i>
-                      <i class="ni ni-active-40 esp"></i>
-                      <i class="ni ni-favourite-28 esp"></i>
-                    </div>
-                  </button>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                  <button type="button" class="btn-icon-clipboard" data-clipboard-text="active-40"
-                    title="Copy to clipboard">
-                    <div class="justify-content-center">
-                      <span>Nome do arquivo</span>
-                    </div>
-                    <div class="espaco"></div>
-                    <div class="justify-content-center">
-                      <i class="ni ni-bold-down"></i>
-                      <i class="ni ni-active-40 esp"></i>
-                      <i class="ni ni-favourite-28 esp"></i>
-                    </div>
-                  </button>
-                </div>
               </div>
             </div>
           </div>
@@ -404,7 +377,7 @@
     </div>
   </div>
   <!--   Core   -->
-
+  
   <script src="assets/js/plugins/jquery/dist/jquery.min.js"></script>
   <script src="assets/js/plugins/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
   <!--   Optional JS   -->
