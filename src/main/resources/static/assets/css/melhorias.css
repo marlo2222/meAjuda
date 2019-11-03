@@ -1,0 +1,13 @@
+.espaco{
+  height: 30px;
+  display: block;
+}
+
+.alinhando{
+  text-align: center !important;
+  display: block; 
+}
+
+.esp{
+  margin-left: 40px;
+}
