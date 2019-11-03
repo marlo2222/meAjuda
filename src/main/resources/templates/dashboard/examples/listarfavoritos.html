@@ -65,15 +65,11 @@
           <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <div class="media align-items-center">
               <span class="avatar avatar-sm rounded-circle">
-                <img alt="Image placeholder" src="assets/img/theme/team-1-800x800.jpg
-">
+                <img alt="Image placeholder" src="../../../static/assets/img/theme/team-4-800x800.jpg">
               </span>
             </div>
           </a>
           <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right">
-            <div class=" dropdown-header noti-title">
-              <h6 class="text-overflow m-0">Welcome!</h6>
-            </div>
             <a href="./examples/profile.html" class="dropdown-item">
               <i class="ni ni-single-02"></i>
               <span>Perfil</span>
@@ -193,27 +189,27 @@
               </div>
             </a>
             <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right">
-                <a href="./examples/profile.html" class="dropdown-item">
-                  <i class="ni ni-single-02"></i>
-                  <span>Perfil</span>
-                </a>
-                <a href="./examples/profile.html" class="dropdown-item">
-                  <i class="ni ni-settings-gear-65"></i>
-                  <span>Configurações</span>
-                </a>
-                <a href="./examples/profile.html" class="dropdown-item">
-                  <i class="ni ni-collection"></i>
-                  <span>Meus documentos</span>
-                </a>
-                <a href="./examples/profile.html" class="dropdown-item">
-                  <i class="ni ni-single-copy-04"></i>
-                  <span>Enviar documento</span>
-                </a>
-                <div class="dropdown-divider"></div>
-                <a href="#!" class="dropdown-item">
-                  <i class="ni ni-user-run"></i>
-                  <span>Sair</span>
-                </a>
+              <a href="./examples/profile.html" class="dropdown-item">
+                <i class="ni ni-single-02"></i>
+                <span>Perfil</span>
+              </a>
+              <a href="./examples/profile.html" class="dropdown-item">
+                <i class="ni ni-settings-gear-65"></i>
+                <span>Configurações</span>
+              </a>
+              <a href="./examples/profile.html" class="dropdown-item">
+                <i class="ni ni-collection"></i>
+                <span>Meus documentos</span>
+              </a>
+              <a href="./examples/profile.html" class="dropdown-item">
+                <i class="ni ni-single-copy-04"></i>
+                <span>Enviar documento</span>
+              </a>
+              <div class="dropdown-divider"></div>
+              <a href="#!" class="dropdown-item">
+                <i class="ni ni-user-run"></i>
+                <span>Sair</span>
+              </a>
             </div>
           </li>
         </ul>
@@ -227,23 +223,23 @@
           <!-- Card stats -->
           <div class="row">
 
-              <div class="col-xl-3 col-lg-6">
-                  <div class="card card-stats mb-4 mb-xl-0">
-                    <div class="card-body">
-                      <div class="row">
-                        <div class="col">
-                          <h5 class="card-title text-uppercase text-muted mb-0">Documentos compartilhados</h5>
-                          <span class="h2 font-weight-bold mb-0" th:text="${quatidadeFavoritosRecebidos}"></span>
-                        </div>
-                        <div class="col-auto">
-                          <div class="icon icon-shape bg-warning text-white rounded-circle shadow">
-                            <i class="ni ni-ruler-pencil"></i>
-                          </div>
-                        </div>
+            <div class="col-xl-3 col-lg-6">
+              <div class="card card-stats mb-4 mb-xl-0">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col">
+                      <h5 class="card-title text-uppercase text-muted mb-0">Documentos compartilhados</h5>
+                      <span class="h2 font-weight-bold mb-0" th:text="${quatidadeFavoritosRecebidos}"></span>
+                    </div>
+                    <div class="col-auto">
+                      <div class="icon icon-shape bg-warning text-white rounded-circle shadow">
+                        <i class="ni ni-ruler-pencil"></i>
                       </div>
                     </div>
                   </div>
                 </div>
+              </div>
+            </div>
             <div class="col-xl-3 col-lg-6">
               <div class="card card-stats mb-4 mb-xl-0">
                 <div class="card-body">
@@ -313,13 +309,14 @@
                   <button type="button" class="btn-icon-clipboard" data-clipboard-text="active-40"
                     title="Copy to clipboard">
                     <div class="justify-content-center">
-                      <span>Nome do arquivo</span>
+                      <p class="nomeArq">Nome do arquivo</p>
                     </div>
-                    <div class="espaco"></div>
+                    <p>testando a quantidade de caracteres que se pode adicionar aqui aparanetemente da pra escrever
+                      muito, isso é bem legal. caralho que hrs isso acaba? nao</p>
                     <div class="justify-content-center">
                       <i class="ni ni-bold-down"></i>
-                      <i class="ni ni-active-40 esp"></i>
-                      <i class="ni ni-favourite-28 esp"></i>
+                      <i class="ni ni-tag esp"></i>
+                      <i class="ni ni-fat-remove esp"></i>
                     </div>
                   </button>
                 </div>
@@ -327,13 +324,14 @@
                   <button type="button" class="btn-icon-clipboard" data-clipboard-text="active-40"
                     title="Copy to clipboard">
                     <div class="justify-content-center">
-                      <span>Nome do arquivo</span>
+                      <p class="nomeArq">Nome do arquivo</p>
                     </div>
-                    <div class="espaco"></div>
+                    <p>testando a quantidade de caracteres que se pode adicionar aqui aparanetemente da pra escrever
+                      muito, isso é bem legal. caralho que hrs isso acaba? nao</p>
                     <div class="justify-content-center">
                       <i class="ni ni-bold-down"></i>
-                      <i class="ni ni-active-40 esp"></i>
-                      <i class="ni ni-favourite-28 esp"></i>
+                      <i class="ni ni-tag esp"></i>
+                      <i class="ni ni-fat-remove esp"></i>
                     </div>
                   </button>
                 </div>
@@ -341,13 +339,14 @@
                   <button type="button" class="btn-icon-clipboard" data-clipboard-text="active-40"
                     title="Copy to clipboard">
                     <div class="justify-content-center">
-                      <span>Nome do arquivo</span>
+                      <p class="nomeArq">Nome do arquivo</p>
                     </div>
-                    <div class="espaco"></div>
+                    <p>testando a quantidade de caracteres que se pode adicionar aqui aparanetemente da pra escrever
+                      muito, isso é bem legal. caralho que hrs isso acaba? nao</p>
                     <div class="justify-content-center">
                       <i class="ni ni-bold-down"></i>
-                      <i class="ni ni-active-40 esp"></i>
-                      <i class="ni ni-favourite-28 esp"></i>
+                      <i class="ni ni-tag esp"></i>
+                      <i class="ni ni-fat-remove esp"></i>
                     </div>
                   </button>
                 </div>
@@ -355,13 +354,14 @@
                   <button type="button" class="btn-icon-clipboard" data-clipboard-text="active-40"
                     title="Copy to clipboard">
                     <div class="justify-content-center">
-                      <span>Nome do arquivo</span>
+                      <p class="nomeArq">Nome do arquivo</p>
                     </div>
-                    <div class="espaco"></div>
+                    <p>testando a quantidade de caracteres que se pode adicionar aqui aparanetemente da pra escrever
+                      muito, isso é bem legal. caralho que hrs isso acaba? nao</p>
                     <div class="justify-content-center">
                       <i class="ni ni-bold-down"></i>
-                      <i class="ni ni-active-40 esp"></i>
-                      <i class="ni ni-favourite-28 esp"></i>
+                      <i class="ni ni-tag esp"></i>
+                      <i class="ni ni-fat-remove esp"></i>
                     </div>
                   </button>
                 </div>
@@ -369,13 +369,14 @@
                   <button type="button" class="btn-icon-clipboard" data-clipboard-text="active-40"
                     title="Copy to clipboard">
                     <div class="justify-content-center">
-                      <span>Nome do arquivo</span>
+                      <p class="nomeArq">Nome do arquivo</p>
                     </div>
-                    <div class="espaco"></div>
+                    <p>testando a quantidade de caracteres que se pode adicionar aqui aparanetemente da pra escrever
+                      muito, isso é bem legal. caralho que hrs isso acaba? nao</p>
                     <div class="justify-content-center">
                       <i class="ni ni-bold-down"></i>
-                      <i class="ni ni-active-40 esp"></i>
-                      <i class="ni ni-favourite-28 esp"></i>
+                      <i class="ni ni-tag esp"></i>
+                      <i class="ni ni-fat-remove esp"></i>
                     </div>
                   </button>
                 </div>
@@ -383,13 +384,14 @@
                   <button type="button" class="btn-icon-clipboard" data-clipboard-text="active-40"
                     title="Copy to clipboard">
                     <div class="justify-content-center">
-                      <span>Nome do arquivo</span>
+                      <p class="nomeArq">Nome do arquivo</p>
                     </div>
-                    <div class="espaco"></div>
+                    <p>testando a quantidade de caracteres que se pode adicionar aqui aparanetemente da pra escrever
+                      muito, isso é bem legal. caralho que hrs isso acaba? nao</p>
                     <div class="justify-content-center">
                       <i class="ni ni-bold-down"></i>
-                      <i class="ni ni-active-40 esp"></i>
-                      <i class="ni ni-favourite-28 esp"></i>
+                      <i class="ni ni-tag esp"></i>
+                      <i class="ni ni-fat-remove esp"></i>
                     </div>
                   </button>
                 </div>
