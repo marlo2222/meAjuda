@@ -17,18 +17,16 @@ public class FavoritoController {
 	FavoritoService favoritoService;
 	
 	@GetMapping("/favorito/adicionar/")
-	public ModelAndView adicionarFavorito(@RequestParam("id") long id, @RequestParam("donoDocumento") long donoDocumento) {
+	public ModelAndView adicionarFavorito(@RequestParam("id") long id, @RequestParam("donoDocumento") long donoDocumento, @RequestParam("idDisciplina") long idDisciplina) {
 		
 		ModelAndView mv = new ModelAndView();
-		long usuario = 1;//mudar para quando usuario estiver logado
-		System.out.println(id+" "+donoDocumento);
+		long usuario = 71;//mudar para quando usuario estiver logado
+		System.out.println(usuario+""+donoDocumento);
 		ResponseEntity<?> response = favoritoService.adiconarFavorito(id, usuario, donoDocumento);
-		System.out.println(response.getStatusCodeValue());
 		if (response.getStatusCodeValue() == 201) {
-			favoritoService.adiconarPontos(usuario, 40);
+			favoritoService.adiconarPontos(donoDocumento, 40);
 		}
-		System.out.println("entrou aqui");
-		mv.setViewName("redirect:/listar/Documento");
+		mv.setViewName("redirect:/listar/disciplina/"+idDisciplina);
 		return mv;
 	}
 

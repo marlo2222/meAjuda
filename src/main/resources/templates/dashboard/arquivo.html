@@ -14,7 +14,7 @@
 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="www.thymeleaf.org">
 
 <head>
   <meta charset="utf-8" />
@@ -23,14 +23,14 @@
     Me ajuda?
   </title>
   <!-- Favicon -->
-  <link href="../../../static/assets/img/brand/logopequeno.png" rel="icon" type="image/png">
+  <link href="/assets/img/brand/logopequeno.png" rel="icon" type="image/png">
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
   <!-- Icons -->
-  <link href="../../../static/assets/js/plugins/nucleo/css/nucleo.css" rel="stylesheet" />
-  <link href="../../../static/assets/js/plugins/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet" />
+  <link href="/assets/js/plugins/nucleo/css/nucleo.css" rel="stylesheet" />
+  <link href="/assets/js/plugins/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet" />
   <!-- CSS Files -->
-  <link href="../../../static/assets/css/argon-dashboard.css?v=1.1.0" rel="stylesheet" />
+  <link href="/assets/css/argon-dashboard.css?v=1.1.0" rel="stylesheet" />
 </head>
 
 <body class="bg-default">
@@ -38,8 +38,8 @@
     <!-- Navbar -->
     <nav class="navbar navbar-top navbar-horizontal navbar-expand-md navbar-dark">
       <div class="container px-4">
-        <a class="navbar-brand" href="../index.html">
-          <img src="../../../static/assets/img/brand/logo.svg" />
+        <a class="navbar-brand" href="/home">
+          <img src="/assets/img/brand/logo.svg" />
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse-main"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -51,7 +51,7 @@
             <div class="row">
               <div class="col-6 collapse-brand">
                 <a href="../index.html">
-                  <img src="../../../static/assets/img/brand/logo.svg">
+                  <img src="/assets/img/brand/logo.svg">
                 </a>
               </div>
               <div class="col-6 collapse-close">
@@ -69,7 +69,7 @@
               <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <div class="media align-items-center">
                   <span class="avatar avatar-sm rounded-circle">
-                    <img alt="Image placeholder" src="../../../static/assets/img/theme/team-4-800x800.jpg">
+                    <img alt="Image placeholder" src="/assets/img/theme/team-4-800x800.jpg">
                   </span>
                 </div>
               </a>
@@ -128,13 +128,13 @@
               <div class="text-center text-muted mb-4">
                 <small>Com um simples arquivo você conseguirá ajudar muitos alunos</small>
               </div>
-              <form role="form">
+              <form role="form" action="/arquivo" method="post" enctype="multipart/form-data">
                 <div class="form-group mb-3">
                   <div class="input-group input-group-alternative">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-single-copy-04"></i></span>
                     </div>
-                    <input class="form-control" placeholder="Nome do arquivo" type="text">
+                    <input class="form-control" placeholder="Nome do arquivo" type="text" name="titulo">
                   </div>
                 </div>
                 <div class="form-group mb-3">
@@ -142,19 +142,24 @@
                       <div class="input-group-prepend">
                         <span class="input-group-text"><i class="ni ni-chat-round"></i></span>
                       </div>
-                      <input class="form-control" placeholder="Descrição do arquivo" required="" type="text" maxlength="150">
+                      <input class="form-control" placeholder="Descrição do arquivo" required="" type="text" maxlength="150" name="descricao">
                     </div>
                   </div>
-                <div class="form-group">
-                  <select id="inputState" class="form-control input-group input-group-alternative">
+                <div class="form-group mb-3">
+                  <select id="inputState" class="form-control input-group input-group-alternative" name="tipo">
                     <option selected>Escolha o tipo de documento...</option>
-                    <option>...</option>
+                    <option value="1">Lista</option>
+  					<option value="2">Prova</option>
+  					<option value="3">Trabalho</option>
+  					<option value="4">Resumo</option>
+  					<option value="5">Artigo</option>
+  					<option value="6">Apresentação</option>
                   </select>
                 </div>
-                <div class="form-group">
-                  <select id="inputState" class="form-control input-group input-group-alternative">
+                <div class="form-group mb-3">
+                  <select id="inputState" class="form-control input-group input-group-alternative" name="disciplina">
                     <option selected>Esse documento é da disciplina...</option>
-                    <option>...</option>
+                    <option th:each="disciplina : ${disciplinas}" th:value="${disciplina.id}" th:text="${disciplina.nome}"></option>
                   </select>
                 </div>
                 <div class="form-group mb-3">
@@ -162,12 +167,12 @@
                       <div class="input-group-prepend">
                         <span class="input-group-text"><i class="ni ni-archive-2"></i></span>
                       </div>
-                      <input class="form-control" placeholder="Anexar arquivo" required="" type="file" maxlength="150">
+                      <input id="inputState" class="form-control input-group input-group-alternative" placeholder="selecione arquivo" required="" type="file" name="arquivo">
                     </div>
                   </div>
                 <div class="text-center">
-                  <button type="button" class="btn btn-primary my-4">Enviar arquivo</button>
-                  <button type="button" class="btn btn-danger my-4">Cancelar</button>
+                  <button type="submit" class="btn btn-primary my-4">Enviar arquivo</button>
+                  <a href="/home" class="btn btn-danger my-4">Cancelar</a>
                 </div>
               </form>
             </div>
@@ -204,13 +209,13 @@
     </footer>
   </div>
   <!--   Core   -->
-  <script src="../../../static/assets/js/plugins/jquery/dist/jquery.min.js"></script>
-  <script src="../../../static/assets/js/plugins/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/assets/js/plugins/jquery/dist/jquery.min.js"></script>
+  <script src="/assets/js/plugins/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
   <!--   Optional JS   -->
-  <script src="../../../static/assets/js/plugins/chart.js/dist/Chart.min.js"></script>
-  <script src="../../../static/assets/js/plugins/chart.js/dist/Chart.extension.js"></script>
+  <script src="/assets/js/plugins/chart.js/dist/Chart.min.js"></script>
+  <script src="/assets/js/plugins/chart.js/dist/Chart.extension.js"></script>
   <!--   Argon JS   -->
-  <script src="../../../static/assets/js/argon-dashboard.min.js?v=1.1.0"></script>
+  <script src="/assets/js/argon-dashboard.min.js?v=1.1.0"></script>
   <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
   <script>
     window.TrackJS &&

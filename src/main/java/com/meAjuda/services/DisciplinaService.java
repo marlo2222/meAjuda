@@ -30,6 +30,8 @@ public class DisciplinaService {
 	public Curso cursoId(long id) {
 		ResponseEntity<Curso> entity = rest.getForEntity(urlCurso+"listar/"+id, Curso.class);
 		Curso curso = entity.getBody();
+		if(curso == null)
+			return new Curso();
 		return curso;
 	}
 	
@@ -68,7 +70,4 @@ public class DisciplinaService {
 		rest.delete(urlDisciplina+"deletar/"+id);
 	}
 	
-	
-	
-
 }

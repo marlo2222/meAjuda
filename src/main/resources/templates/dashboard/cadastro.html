@@ -14,7 +14,7 @@
 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="www.thymeleaf.org">
 
 <head>
   <meta charset="utf-8" />
@@ -23,14 +23,14 @@
     Me ajuda?
   </title>
   <!-- Favicon -->
-  <link href="../../../static/assets/img/brand/logopequeno.png" rel="icon" type="image/png">
+  <link href="/assets/img/brand/logopequeno.png" rel="icon" type="image/png">
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
   <!-- Icons -->
-  <link href="../../../static/assets/js/plugins/nucleo/css/nucleo.css" rel="stylesheet" />
-  <link href="../../../static/assets/js/plugins/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet" />
+  <link href="/static/assets/js/plugins/nucleo/css/nucleo.css" rel="stylesheet" />
+  <link href="/static/assets/js/plugins/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet" />
   <!-- CSS Files -->
-  <link href="../../../static/assets/css/argon-dashboard.css?v=1.1.0" rel="stylesheet" />
+  <link href="/assets/css/argon-dashboard.css?v=1.1.0" rel="stylesheet" />
 </head>
 
 <body class="bg-default">
@@ -39,7 +39,7 @@
     <nav class="navbar navbar-top navbar-horizontal navbar-expand-md navbar-dark">
       <div class="container px-4">
         <a class="navbar-brand" href="../index.html">
-          <img src="../../../static/assets/img/brand/logo.svg" />
+          <img src="/assets/img/brand/logo.svg" />
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse-main"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -51,7 +51,7 @@
             <div class="row">
               <div class="col-6 collapse-brand">
                 <a href="../index.html">
-                  <img src="../../../static/assets/img/brand/logo.svg">
+                  <img src="/assets/img/brand/logo.svg">
                 </a>
               </div>
               <div class="col-6 collapse-close">
@@ -108,31 +108,37 @@
               <div class="text-center text-muted mb-4">
                 <small>Preencha o formulário para obter uma conta</small>
               </div>
-              <form role="form">
+              <form role="form" action="/cadastro" method="post" th:object="${usuario}">
                 <!---->
-                <div class="form-group">
+                <div class="form-group mb-3">
                   <div class="input-group input-group-alternative">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-badge"></i></span>
                     </div>
-                    <input class="form-control" placeholder="Primeiro nome" type="text">
+                    <input class="form-control" placeholder="Primeiro nome" type="text" th:field="*{primeiroNome}">
                   </div>
+                  <div class="alert-danger" role="alert" th:if="${#fields.hasErrors('primeiroNome')}">
+						<small th:errors="*{primeiroNome}" id="emailHelp" class=" text-muted validation-message"></small>
+				  </div>
                 </div>
-                <div class="form-group">
+                <div class="form-group mb-3">
                   <div class="input-group input-group-alternative">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-badge"></i></span>
                     </div>
-                    <input class="form-control" placeholder="Segundo nome" type="text">
+                    <input class="form-control" placeholder="Segundo nome" type="text" th:field="*{segundoNome}">
                   </div>
                 </div>
-                <div class="form-group">
+                <div class="form-group mb-3">
                   <div class="input-group input-group-alternative">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-world"></i></span>
                     </div>
-                    <input class="form-control" placeholder="Matrícula" type="text">
+                    <input class="form-control" placeholder="Matrícula" type="text" th:field="*{matricula}">
                   </div>
+                  <div class="alert-danger" role="alert" th:if="${#fields.hasErrors('matricula')}">
+						<small th:errors="*{matricula}" id="emailHelp" class=" text-muted validation-message"></small>
+				  </div>
                 </div>
                 <!---->
                 <div class="form-group mb-3">
@@ -140,15 +146,25 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                     </div>
-                    <input class="form-control" placeholder="Email" type="email">
+                    <input class="form-control" placeholder="Email" type="email" th:field="*{email}">
                   </div>
+                  <div class="alert-danger" role="alert" th:if="${#fields.hasErrors('email')}">
+					<small th:errors="*{email}" id="emailHelp" class=" text-muted validation-message"></small>
+				  </div>
                 </div>
                 <!---->
-                <div class="form-group">
-                  <select id="inputState" class="form-control input-group input-group-alternative">
-                    <option selected>Curso...</option>
-                    <option>...</option>
-                  </select>
+                <div class="form-group mb-3">
+                
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-align-center"></i></span>
+                    </div>
+                    	<select id="inputState" class="form-control" name="curso">
+                    		<option selected>Qual seu curso</option>
+    						<option th:each="curso : ${cursos}" th:value="${curso.id}" th:text="${curso.nome}">
+    						</option>
+						</select>
+                    </div>
                 </div>
                 <!---->
                 <div class="form-group">
@@ -156,11 +172,15 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                     </div>
-                    <input class="form-control" placeholder="Senha" type="password">
+                    <input class="form-control" placeholder="Senha" type="password" th:field="*{senha}">
                   </div>
+                  <div class="alert-danger" role="alert" th:if="${#fields.hasErrors('senha')}">
+					<small th:errors="*{senha}" id="emailHelp" class=" text-muted validation-message"></small>
+				  </div>
                 </div>
                 <div class="text-center">
-                  <button type="button" class="btn btn-primary my-4">Criar conta</button>
+                   <button type="submit" class="btn btn-primary my-4">Criar conta</button>
+                  <button type="button" class="btn btn-danger my-4">Cancelar</button>
                 </div>
               </form>
             </div>
@@ -176,42 +196,17 @@
         </div>
       </div>
     </div>
-    <footer class="py-5">
-      <div class="container">
-        <div class="row align-items-center justify-content-xl-between">
-          <div class="col-xl-6">
-            <div class="copyright text-center text-xl-left text-muted">
-              <!--© 2018 <a href="https://www.creative-tim.com" class="font-weight-bold ml-1" target="_blank">Creative Tim</a>-->
-            </div>
-          </div>
-          <div class="col-xl-6">
-            <ul class="nav nav-footer justify-content-center justify-content-xl-end">
-              <li class="nav-item">
-                <!--<a href="https://www.creative-tim.com" class="nav-link" target="_blank">Creative Tim</a>-->
-              </li>
-              <li class="nav-item">
-                <!--<a href="https://www.creative-tim.com/presentation" class="nav-link" target="_blank">About Us</a>-->
-              </li>
-              <li class="nav-item">
-                <!--<a href="http://blog.creative-tim.com" class="nav-link" target="_blank">Blog</a>-->
-              </li>
-              <li class="nav-item">
-                <!--<a href="https://github.com/creativetimofficial/argon-dashboard/blob/master/LICENSE.md" class="nav-link" target="_blank">MIT License</a>-->
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </footer>
+    <!-- footer -->
+    
   </div>
   <!--   Core   -->
-  <script src="../../../static/assets/js/plugins/jquery/dist/jquery.min.js"></script>
-  <script src="../../../static/assets/js/plugins/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/assets/js/plugins/jquery/dist/jquery.min.js"></script>
+  <script src="/assets/js/plugins/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
   <!--   Optional JS   -->
-  <script src="../../../static/assets/js/plugins/chart.js/dist/Chart.min.js"></script>
-  <script src="../../../static/assets/js/plugins/chart.js/dist/Chart.extension.js"></script>
+  <script src="/assets/js/plugins/chart.js/dist/Chart.min.js"></script>
+  <script src="/assets/js/plugins/chart.js/dist/Chart.extension.js"></script>
   <!--   Argon JS   -->
-  <script src="../../../static/assets/js/argon-dashboard.min.js?v=1.1.0"></script>
+  <script src="/assets/js/argon-dashboard.min.js?v=1.1.0"></script>
   <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
   <script>
     window.TrackJS &&

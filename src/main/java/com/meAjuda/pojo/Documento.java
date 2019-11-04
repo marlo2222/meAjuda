@@ -22,7 +22,11 @@ public class Documento {
 	
 	private String titulo;
 	
+	private String descricao;
+	
 	private long idDisciplina;
+	
+	
 
 
 	private long idUsuario;
@@ -109,5 +113,15 @@ public class Documento {
 	public void setIdDisciplina(long idDisciplina) {
 		this.idDisciplina = idDisciplina;
 	}
+
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
+
 
 }

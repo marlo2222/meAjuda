@@ -6,8 +6,6 @@ public class Disciplina {
 
     private String nome;
 
-    private String professorAtual;
-
     private Curso curso;
     
     private int idCurso;
@@ -26,14 +24,6 @@ public class Disciplina {
 
 	public void setNome(String nome) {
 		this.nome = nome;
-	}
-
-	public String getProfessorAtual() {
-		return professorAtual;
-	}
-
-	public void setProfessorAtual(String professorAtual) {
-		this.professorAtual = professorAtual;
 	}
 
 	public Curso getCurso() {

@@ -40,8 +40,7 @@ public class UsuarioController {
 	@GetMapping("/login")
 	public ModelAndView login() {
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("login/login");
-		//mv.setViewName("testes/loginTeste");
+		mv.setViewName("dashboard/login");
 		return mv;
 	}
 	@PostMapping("/login")
@@ -58,7 +57,7 @@ public class UsuarioController {
 		Curso[] cursos = disciplinaService.listarCursos(); 
 		mv.addObject("cursos",cursos);
 		mv.addObject("usuario", new Usuario());
-		mv.setViewName("login/cadastro");
+		mv.setViewName("dashboard/cadastro");
 		return mv;
 	}
 	@PostMapping("/cadastro")
@@ -67,7 +66,7 @@ public class UsuarioController {
 		ModelAndView mv = new ModelAndView();
 		result = usuarioService.registrarUsuario(usuario, result);
 		if (result.hasErrors()) {
-			mv.setViewName("login/cadastro");
+			mv.setViewName("dashboard/cadastro");
 			Curso[] cursos = disciplinaService.listarCursos(); 
 			mv.addObject("cursos",cursos);
 			mv.addObject("usuario", usuario);

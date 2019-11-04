@@ -27,7 +27,7 @@ public class DisciplinaController {
 		Curso[] cursos = disciplinaService.listarCursos();
 		mv.addObject("disciplina", new Disciplina());
 		mv.addObject("cursos", cursos);
-		mv.setViewName("cadastro/cadastroDisciplina");
+		mv.setViewName("dashboard/disciplina");
 		return mv;
 	}
 	@PostMapping("/cadastro/disciplina")
@@ -36,7 +36,7 @@ public class DisciplinaController {
 		disciplina.setCurso(disciplinaService.cursoId(disciplina.getIdCurso()));
 		disciplinaService.salvarDisciplina(disciplina, result);
 		if (result.hasErrors()) {
-			mv.setViewName("cadastro/cadastroDisciplina"); 	
+			mv.setViewName("dashboard/disciplina"); 	
 		}else {
 		mv.setViewName("redirect:/disciplinas/listar");
 		}
@@ -61,7 +61,7 @@ public class DisciplinaController {
 	public ModelAndView cadastraCurso() {
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("curso", new Curso());
-		mv.setViewName("cadastro/cadastroCurso");
+		mv.setViewName("dashboard/curso");
 		return mv;
 	}
 	@PostMapping("/cadastro/curso")
@@ -70,9 +70,9 @@ public class DisciplinaController {
 		//disciplinaService.imprimir(curso);
 		disciplinaService.salvarCurso(curso,result);
 		if (result.hasErrors()) {
-			mv.setViewName("cadastro/cadastroCurso"); 	
+			mv.setViewName("dashboard/curso"); 	
 		}else {
-		mv.setViewName("redirect:/login");
+		mv.setViewName("redirect:/");
 		}
 		return mv;
 	}

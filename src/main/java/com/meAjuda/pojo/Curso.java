@@ -1,15 +1,19 @@
 package com.meAjuda.pojo;
 
-
+import javax.validation.constraints.NotNull;
 
 
 public class Curso {
 
     private long id;
-
+    
+    @NotNull(message = "esse campo é obrigatorio")
     private String nome;
 
     private int qtdSesmestres;
+    
+    @NotNull(message = "esse campo é obrigatorio")
+    private String descricao;
 
     private Disciplina[] disciplinas;
 
@@ -45,6 +49,12 @@ public class Curso {
 		this.disciplinas = disciplinas;
 	}
 
+	public String getDescricao() {
+		return descricao;
+	}
 
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
 
 }

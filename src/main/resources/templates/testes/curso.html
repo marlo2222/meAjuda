@@ -19,7 +19,7 @@
 				<div class="form-group col-md-6">		
 						<label>quantidade de semestres</label> 
 							<select th:field="*{qtdSesmestres}">
-								<option selected>Quantidade de semestres</option>
+								<!-- <option >Quantidade de semestres</option> -->
     							<option th:each="i : ${#numbers.sequence(1, 10)}" th:value="${i}" th:text="${i}">
     							</option>
 							</select>

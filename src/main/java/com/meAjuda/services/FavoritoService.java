@@ -40,15 +40,6 @@ public class FavoritoService {
 	
 	public Long favoritosDocumentosUsuario(long id){
 		
-		ResponseEntity<Long> response = rest.getForEntity(urlPontuacao+"/"+id, Long.class);
-		Long quantidade = response.getBody();
-		if (quantidade == null)
-			quantidade = (long) 0;
-		return quantidade;
-		
-	}
-	
-	public Long pontuacaoUsuario(long id){
 		
 		ResponseEntity<Long> response = rest.getForEntity(urlFavorito+"/listar/"+id, Long.class);
 		Long quantidade = response.getBody();
@@ -56,6 +47,14 @@ public class FavoritoService {
 			quantidade = (long) 0;
 		return quantidade;
 		
+	}
+	
+	public Long pontuacaoUsuario(long id) {
+		ResponseEntity<Long> response = rest.getForEntity(urlPontuacao+"/"+id, Long.class);
+		Long quantidade = response.getBody();
+		if (quantidade == null)
+			quantidade = (long) 0;
+		return quantidade;
 	}
 	
 	public ResponseEntity<?> adiconarPontos(long usuario, long pontos){

@@ -36,7 +36,7 @@ public class FileService {
 	@Autowired
 	RestTemplate rest;
 
-	public void enviarArquivo(long usuario, String titulo, long tipo, long disciplina, MultipartFile file) throws IOException {
+	public void enviarArquivo(long usuario, String titulo, String descricao, long tipo, long disciplina, MultipartFile file) throws IOException {
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(MediaType.MULTIPART_FORM_DATA);
 
@@ -44,6 +44,7 @@ public class FileService {
 		body.add("disciplina", disciplina);
 		body.add("usuario", usuario);
 		body.add("titulo", titulo);
+		body.add("descricao", descricao);
 		body.add("tipo", tipo);
 		body.add("arquivo", getTestFile(file));
 
@@ -52,7 +53,7 @@ public class FileService {
 		ResponseEntity<String> response = rest.postForEntity(urlFile+"/documento/adicionar/", requestEntity, String.class);
 
 	}
-	
+	//quantidade de arquivos usuario
 	public Long quantidadeArquivosUsuario(long id){
 		ResponseEntity<Long> response = rest.getForEntity(urlFile+"/count/"+id, Long.class);
 		Long quantidade = response.getBody();
@@ -61,11 +62,19 @@ public class FileService {
 		return quantidade;
 	}
 	
+	//listar todos os documentos
 	public Documento[] listarDocumentos() {
 		ResponseEntity<Documento[]> response = rest.getForEntity(urlFile+"/listar", Documento[].class);
 		Documento[] documentos = response.getBody();
 		return documentos;
+	
 	}
+	public Documento[] listaDocumentosDisciplina(long idDisciplina) {
+		ResponseEntity<Documento[]> response = rest.getForEntity(urlFile+"/listar/disciplina/"+idDisciplina, Documento[].class);
+		Documento[] documentos = response.getBody();
+		return documentos;
+	}
+	
 	public static Resource getTestFile(MultipartFile file) throws IOException {
 
 		File tempFile = null;
