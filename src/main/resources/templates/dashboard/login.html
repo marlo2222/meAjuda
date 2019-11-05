@@ -64,14 +64,17 @@
             <div class="card-body px-lg-5 py-lg-5">
               <div class="text-center text-muted mb-4">
                 <small>Utilize seu email e senha de cadastro para entrar</small>
+                <div class=" alert alert-danger" role="alert" th:if="${param.error}">
+						não foi possivel fazer o login.
+				</div>
               </div>
-              <form role="form">
+              <form role="form" action="/login" method="post">
                 <div class="form-group mb-3">
                   <div class="input-group input-group-alternative">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                     </div>
-                    <input class="form-control" placeholder="Email" type="email">
+                    <input name="username" class="form-control" placeholder="matricula" type="text">
                   </div>
                 </div>
                 <div class="form-group">
@@ -79,11 +82,12 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                     </div>
-                    <input class="form-control" placeholder="Senha" type="password">
+                    <input name="password" class="form-control" placeholder="Senha" type="password">
                   </div>
                 </div>
                 <div class="text-center">
                   <button type="submit" class="btn btn-primary my-4">Entrar</button>
+                  <a href="/"  class="btn btn-danger my-4">Cancelar</a>
                 </div>
               </form>
             </div>
@@ -93,7 +97,7 @@
               <a href="#" class="text-light"><small>Esqueceu sua senha?</small></a>
             </div>
             <div class="col-6 text-right">
-              <a href="#" class="text-light"><small>Criar conta</small></a>
+              <a href="/cadastro" class="text-light"><small>Criar conta</small></a>
             </div>
           </div>
         </div>

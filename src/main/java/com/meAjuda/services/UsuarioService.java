@@ -37,4 +37,19 @@ public class UsuarioService {
 		}
 		return result;
 	}
+	
+	public Usuario login(String matricula) {
+		ResponseEntity<Usuario> response = rest.getForEntity(url+"/"+matricula, Usuario.class);
+		Usuario usuario = null;
+		if (response.getStatusCodeValue() == 200){
+			usuario = response.getBody();
+		}
+		return usuario;
+	}
+	
+	public Usuario usuarioAtivo(HttpServletRequest request) {
+		String matricula = request.getUserPrincipal().getName(); 
+		Usuario usuario = login(matricula);
+		return usuario;
+	}
 }

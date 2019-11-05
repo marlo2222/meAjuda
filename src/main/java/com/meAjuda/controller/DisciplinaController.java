@@ -67,7 +67,6 @@ public class DisciplinaController {
 	@PostMapping("/cadastro/curso")
 	public ModelAndView cadastraCurso(Curso curso, BindingResult result) {
 		ModelAndView mv = new ModelAndView();
-		//disciplinaService.imprimir(curso);
 		disciplinaService.salvarCurso(curso,result);
 		if (result.hasErrors()) {
 			mv.setViewName("dashboard/curso"); 	

@@ -74,6 +74,11 @@ public class FileService {
 		Documento[] documentos = response.getBody();
 		return documentos;
 	}
+	public Documento[] listaDocumentosUsuario(long idusuario) {
+		ResponseEntity<Documento[]> response = rest.getForEntity(urlFile+"/listar/usuario/"+idusuario, Documento[].class);
+		Documento[] documentos = response.getBody();
+		return documentos;
+	}
 	
 	public static Resource getTestFile(MultipartFile file) throws IOException {
 

@@ -36,6 +36,7 @@
 
 <body class="">
   <nav th:replace="fragmentos/fragmentos :: nav-index"></nav>
+ 
   <div class="main-content">
     <!-- Navbar -->
     <nav th:replace="fragmentos/fragmentos :: nav-lateral"></nav>
@@ -53,7 +54,7 @@
         <div class="col">
           <div class="card shadow">
             <div class="card-header bg-transparent">
-              <h3 class="mb-0">Documentos</h3>
+              <h3 class="mb-0" th:text="${disciplina}"></h3>
             </div>
             <div class="card-body">
               <div class="row icon-examples">

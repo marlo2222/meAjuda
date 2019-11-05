@@ -48,7 +48,6 @@ public class DisciplinaService {
 	}
 	
 	
-	
 	public BindingResult salvarDisciplina(Disciplina disciplina, BindingResult result){
 		
 		ResponseEntity<Disciplina> entity = rest.postForEntity(urlDisciplina+"salvar", disciplina,Disciplina.class);
@@ -66,6 +65,11 @@ public class DisciplinaService {
 		return disciplinas;
 	}
 	
+	public Disciplina listarDisciplinaId(long id) {
+		ResponseEntity<Disciplina> response = rest.getForEntity(urlDisciplina+"listar/"+id, Disciplina.class);
+		Disciplina disciplinas = response.getBody();
+		return disciplinas;
+	}
 	public void deletarDisciplina(long id){
 		rest.delete(urlDisciplina+"deletar/"+id);
 	}

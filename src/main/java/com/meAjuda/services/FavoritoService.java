@@ -11,6 +11,8 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.client.RestTemplate;
 
+import com.meAjuda.pojo.Favorito;
+
 import ch.qos.logback.classic.net.SocketNode;
 
 @Service
@@ -72,6 +74,5 @@ public class FavoritoService {
 
 		return response;
 
-	}
-	
+	}	
 }
