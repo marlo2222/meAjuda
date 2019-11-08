@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -38,6 +39,7 @@ public class UsuarioService {
 		return result;
 	}
 	
+	
 	public Usuario login(String matricula) {
 		ResponseEntity<Usuario> response = rest.getForEntity(url+"/"+matricula, Usuario.class);
 		Usuario usuario = null;
@@ -46,7 +48,7 @@ public class UsuarioService {
 		}
 		return usuario;
 	}
-	
+	@Cacheable(cacheNames = "usuario", key="#request.getUserPrincipal().getName()")
 	public Usuario usuarioAtivo(HttpServletRequest request) {
 		String matricula = request.getUserPrincipal().getName(); 
 		Usuario usuario = login(matricula);

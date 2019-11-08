@@ -40,8 +40,18 @@ public class FavoritoService {
 		return response;
 	}
 	
+	//listar os favoritos de um usuario
+	public Favorito[] favoritosUsuario(long idUsuario) {
+		ResponseEntity<Favorito[]> response = rest.getForEntity(urlFavorito+"usuario/"+idUsuario, Favorito[].class);
+		Favorito[] favoritos = response.getBody();
+		if (favoritos == null) {
+			favoritos = new Favorito[0];
+		}
+		return favoritos;
+	}
+	
+	//quanto favoritos os documentos do usuario receberam
 	public Long favoritosDocumentosUsuario(long id){
-		
 		
 		ResponseEntity<Long> response = rest.getForEntity(urlFavorito+"/listar/"+id, Long.class);
 		Long quantidade = response.getBody();
@@ -51,6 +61,7 @@ public class FavoritoService {
 		
 	}
 	
+	//pontuação do usuario com base em um favorito
 	public Long pontuacaoUsuario(long id) {
 		ResponseEntity<Long> response = rest.getForEntity(urlPontuacao+"/"+id, Long.class);
 		Long quantidade = response.getBody();
@@ -75,4 +86,10 @@ public class FavoritoService {
 		return response;
 
 	}	
+	//remover um favorito
+	public void removerFavorito(long id) {
+		rest.delete(urlFavorito+"/"+id);
+	}
+	
+	
 }

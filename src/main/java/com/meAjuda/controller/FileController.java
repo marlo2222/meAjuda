@@ -101,4 +101,13 @@ public class FileController {
 		mv.setViewName("dashboard/documentos");
 		return mv;
 	}
+	
+	@GetMapping("/documento/deletar/{id}")
+	public ModelAndView removerDocumento(@PathVariable("id") long id){
+		ModelAndView mv = new ModelAndView();
+		fileService.deletarArquivo(id);
+		mv.setViewName("redirect:/listar/documento/usuario");
+		return mv;
+		
+	}
 }

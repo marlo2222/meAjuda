@@ -64,9 +64,9 @@
                     </div>
                     <p th:text="${documento.descricao}"></p>
                     <div class="justify-content-center">
-                      <i class="ni ni-bold-down"></i>
-                      <i class="ni ni-tag esp"></i>
-                      <i class="ni ni-fat-remove esp"></i>
+                      <i class="fa fa-cog"></i>
+                      <a th:href="@{${documento.fileDownloadUri}}"><i class="fa fa-download esp"></i>
+                      <a th:href="@{/documento/deletar/{id}(id=${documento.id})}"><i class="fa fa-trash esp"></i></a>
                     </div>
                   </button>
                 </div>

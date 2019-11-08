@@ -3,6 +3,7 @@ package com.meAjuda.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -27,8 +28,8 @@ public class DisciplinaService {
 		return cursos;
 	}
 	
-	public Curso cursoId(long id) {
-		ResponseEntity<Curso> entity = rest.getForEntity(urlCurso+"listar/"+id, Curso.class);
+	public Curso cursoId(long idCurso) {
+		ResponseEntity<Curso> entity = rest.getForEntity(urlCurso+"listar/"+idCurso, Curso.class);
 		Curso curso = entity.getBody();
 		if(curso == null)
 			return new Curso();
@@ -58,6 +59,7 @@ public class DisciplinaService {
 		}
 		return result;
 	}
+	
 	
 	public Disciplina[] listarDisciplinas() {
 		ResponseEntity<Disciplina[]> response = rest.getForEntity(urlDisciplina+"listar", Disciplina[].class);

@@ -1,5 +1,6 @@
 package com.meAjuda.pojo;
 
+import java.io.Serializable;
 import java.util.Collection;
 
 import javax.validation.constraints.Email;
@@ -10,9 +11,11 @@ import org.hibernate.validator.constraints.Length;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-public class Usuario implements UserDetails {
+public class Usuario implements UserDetails{
 	
-    private long id;
+    
+
+	private long id;
    
     @NotNull(message = "O primeiro nome é obrigatorio")
     private String primeiroNome;
