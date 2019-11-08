@@ -42,7 +42,7 @@ public class FileService {
 	RestTemplate rest;
 	
 	//Insere um novo arquivo
-	@CacheEvict(cacheNames = "quantidadeArquivosUsuario", allEntries = true)
+	//@CacheEvict(cacheNames = "quantidadeArquivosUsuario", allEntries = true)
 	public void enviarArquivo(long idUsuario, String titulo, String descricao, long tipo, long disciplina, MultipartFile file) throws IOException {
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(MediaType.MULTIPART_FORM_DATA);
@@ -61,12 +61,13 @@ public class FileService {
 
 	}
 
-	@CacheEvict(cacheNames = "quantidadeArquivosUsuario", allEntries = true)
+	//@CacheEvict(cacheNames = "quantidadeArquivosUsuario", allEntries = true)
 	public void deletarArquivo(long id){
+		System.out.println("entrou");
 		rest.delete(urlFile+"/delete/"+id);
 	}
 	//quantidade de arquivos usuario
-	@Cacheable(cacheNames = "quantidadeArquivosUsuario", key = "#idUsuario")
+	//@Cacheable(cacheNames = "quantidadeArquivosUsuario", key = "#idUsuario")
 	public Long quantidadeArquivosUsuario(long idUsuario){
 		ResponseEntity<Long> response = rest.getForEntity(urlFile+"/count/"+idUsuario, Long.class);
 		Long quantidade = response.getBody();

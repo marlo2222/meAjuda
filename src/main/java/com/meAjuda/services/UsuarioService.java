@@ -48,7 +48,7 @@ public class UsuarioService {
 		}
 		return usuario;
 	}
-	@Cacheable(cacheNames = "usuario", key="#request.getUserPrincipal().getName()")
+	//@Cacheable(cacheNames = "usuario", key="#request.getUserPrincipal().getName()")
 	public Usuario usuarioAtivo(HttpServletRequest request) {
 		String matricula = request.getUserPrincipal().getName(); 
 		Usuario usuario = login(matricula);

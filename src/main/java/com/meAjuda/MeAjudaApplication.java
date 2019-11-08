@@ -7,7 +7,6 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 
 @SpringBootApplication
 @EnableWebSecurity
-@EnableCaching
 public class MeAjudaApplication {
 
 	public static void main(String[] args) {

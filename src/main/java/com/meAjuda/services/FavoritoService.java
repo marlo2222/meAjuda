@@ -90,6 +90,11 @@ public class FavoritoService {
 	public void removerFavorito(long id) {
 		rest.delete(urlFavorito+"/"+id);
 	}
+	//remover os favoritos com base em um documento
+	public void removerFavoritoDocumento(long idDocumento) {
+		System.out.println("entrou");
+		rest.delete(urlFavorito+"/deletar/"+idDocumento);
+	}
 	
 	
 }

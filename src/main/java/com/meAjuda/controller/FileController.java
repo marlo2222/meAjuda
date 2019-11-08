@@ -106,6 +106,7 @@ public class FileController {
 	public ModelAndView removerDocumento(@PathVariable("id") long id){
 		ModelAndView mv = new ModelAndView();
 		fileService.deletarArquivo(id);
+		favoritoService.removerFavoritoDocumento(id);
 		mv.setViewName("redirect:/listar/documento/usuario");
 		return mv;
 		
