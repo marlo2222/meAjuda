@@ -68,7 +68,7 @@
                     <div class="justify-content-center">
                       <a><i class="fa fa-file"></i></a>
                       <a th:href="@{${documento.fileDownloadUri}}" target="_blank"><i class="fa fa-download esp"></i></a>
-                      <a th:href="@{/favorito/adicionar/(id=${documento.id})}"><i class="ni ni-favourite-28 esp"></i></a>
+                      <a th:href="@{/favorito/adicionar/(id=${documento.id}, donoDocumento=${documento.idUsuario}, idDisciplina=${documento.idDisciplina})}"><i class="ni ni-favourite-28 esp"></i></a>
                     </div>
                   </button>
                 </div>

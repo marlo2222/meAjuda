@@ -63,7 +63,6 @@ public class FileService {
 
 	//@CacheEvict(cacheNames = "quantidadeArquivosUsuario", allEntries = true)
 	public void deletarArquivo(long id){
-		System.out.println("entrou");
 		rest.delete(urlFile+"/delete/"+id);
 	}
 	//quantidade de arquivos usuario
