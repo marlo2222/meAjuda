@@ -24,4 +24,4 @@ Entre as funcionalidades presentes atualmente se destacam:
 
 [API de Usuario](https://github.com/marlo2222/Passei-usuario)
 
-[texto](url aqui)
+[API de disciplina](https://github.com/marlo2222/Passei-disciplina)
