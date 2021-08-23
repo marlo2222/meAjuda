@@ -21,4 +21,12 @@ public class DisciplinaTest extends BaseRequest {
         assertEquals(path.getList("id").size(), 9);
         assertEquals(path.getList("nome").get(0), "redes de computadores");
     }
+
+    @Test(testName = "lista uma disciplina pelo seu ID", groups = {"disciplina", "integration"})
+    public void listarDisciplinaIdTest(){
+        Response response = getMethod(env.envId(env.listDisciplinas(), "19"));
+        JsonPath path = response.jsonPath();
+        assertEquals(response.getStatusCode(), HttpStatus.SC_OK);
+        assertEquals(path.get("nome"), "verificação e validação");
+    }
 }

@@ -6,7 +6,12 @@ import com.meAjuda.integration.config.BaseConfig;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 
+import java.util.HashMap;
+
 public class BaseRequest extends BaseConfig {
+
+    public HashMap<String, String> params = new HashMap<>();
+
     //GET
     public Response getMethod(String path){
         Response response =
@@ -60,5 +65,9 @@ public class BaseRequest extends BaseConfig {
                         .log().all()
                         .extract().response();
         return response;
+    }
+
+    public void addParam(String key, String value){
+        params.put(key, value);
     }
 }

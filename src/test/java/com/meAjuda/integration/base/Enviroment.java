@@ -14,4 +14,12 @@ public class Enviroment {
                 .append(GlobalParameters.END_DISCIPLINAS_LISTAR)
                 .toString();
     }
+
+    public String envId(String path, String id){
+        return new StringBuilder()
+                .append(path)
+                .append("/")
+                .append(id)
+                .toString();
+    }
 }
