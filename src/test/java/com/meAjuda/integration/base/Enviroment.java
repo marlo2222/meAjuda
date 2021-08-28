@@ -14,6 +14,26 @@ public class Enviroment {
                 .append(GlobalParameters.END_DISCIPLINAS_LISTAR)
                 .toString();
     }
+    public String saveDisciplina(){
+        return new StringBuilder()
+                .append(base)
+                .append(GlobalParameters.END_DISCIPLINAS_SALVAR)
+                .toString();
+    }
+    public String updateDisciplina(){
+        return new StringBuilder()
+                .append(base)
+                .append(GlobalParameters.END_DISCIPLINAS_ATUALIZAR)
+                .toString();
+    }
+    public String deleteDisciplina(String id){
+        return new StringBuilder()
+                .append(base)
+                .append(GlobalParameters.END_DISCIPLINAS_DELETAR)
+                .append("/")
+                .append(id)
+                .toString();
+    }
 
     public String envId(String path, String id){
         return new StringBuilder()

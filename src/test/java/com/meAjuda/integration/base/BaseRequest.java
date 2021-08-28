@@ -53,12 +53,11 @@ public class BaseRequest extends BaseConfig {
         return response;
     }
     //DELETE
-    public Response deleteMehod(String path, String body){
+    public Response deleteMehod(String path){
         Response response =
                 given()
                         .log().all()
                         .contentType(ContentType.JSON)
-                        .body(body)
                 .when()
                         .delete(path).prettyPeek()
                 .then()

@@ -9,6 +9,9 @@ public class GlobalParameters {
     private static Properties properties;
     public static String BASE_URL_DISCIPLINAS;
     public static String END_DISCIPLINAS_LISTAR;
+    public static String END_DISCIPLINAS_SALVAR;
+    public static String END_DISCIPLINAS_ATUALIZAR;
+    public static String END_DISCIPLINAS_DELETAR;
 
     public GlobalParameters(){
         this.properties = new Properties();
@@ -19,6 +22,9 @@ public class GlobalParameters {
 
         this.BASE_URL_DISCIPLINAS = properties.getProperty("base-url.disciplinas");
         this.END_DISCIPLINAS_LISTAR = properties.getProperty("disciplina.listar");
+        this.END_DISCIPLINAS_SALVAR = properties.getProperty("disciplina.salvar");
+        this.END_DISCIPLINAS_ATUALIZAR = properties.getProperty("disciplina.atualizar");
+        this.END_DISCIPLINAS_DELETAR = properties.getProperty("disciplina.deletar");
     }
 
     public Properties getProperties(){
