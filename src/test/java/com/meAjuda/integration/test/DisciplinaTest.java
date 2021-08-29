@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+@Test(testName = "Testes de integração -> DISCIPLINA")
 public class DisciplinaTest extends BaseRequest {
 
     Enviroment env = new Enviroment();
