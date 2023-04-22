@@ -1,5 +1,14 @@
 package com.meAjuda.pojo;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
 public class Disciplina {
 
     private long id;
